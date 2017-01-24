@@ -31,19 +31,6 @@ function loadStart() {
     document.getElementById("initialSetup").style.display = "block";
 }
 
-function mine() {
-    'use strict';
-    document.getElementById("logWindow").innerHTML = "You mine some ore.";
-    
-    var x = document.getElementById("inventory"),
-        option = document.createElement("option");
-    option.text = "ore";
-    x.add(option);
-    
-    //Why isn't this working?
-    move();
-}
-
 function rest() {
     'use strict';
     document.getElementById("logWindow").innerHTML = "You got some rest.";
@@ -66,15 +53,25 @@ function select(value) {
 
 function move() {
     'use strict';
+    console.log("barWidth before: " + barWidth);
     var elem = document.getElementById("myBar");
-    
-    function frame() {
-        if (barWidth >= 100) {
-            clearInterval(id);
-        } else {
-            barWidth = barWidth + 1;
-            elem.style.barWidth = barWidth + '%';
-        }
+    if (barWidth < 100) {
+        barWidth = barWidth + 10;
+        elem.style.width = barWidth + '%';
     }
-    frame();
+    console.log("barWidth after: " + barWidth);
+}
+
+
+function mine() {
+    'use strict';
+    document.getElementById("logWindow").innerHTML = "You mine some ore.";
+    
+    var x = document.getElementById("inventory"),
+        option = document.createElement("option");
+    option.text = "ore";
+    x.add(option);
+    
+    //Why isn't this working?
+    move();
 }
