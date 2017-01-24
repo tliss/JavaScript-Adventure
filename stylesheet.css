@@ -46,6 +46,31 @@ p
     float: left;
 }
 
+#statsWrapper
+{
+    margin-left: 5px;
+    float: left;
+    
+}
+
+#statNames{
+    height: 300px;
+    float: left;
+}
+
+#stats
+{
+    height: 300px;
+    width: 30px;
+    float: left;
+}
+
+#statsBorder
+{
+    border: 1px solid black;
+    overflow: hidden;
+}
+
 #logWindow
 {
     height: 120px;
