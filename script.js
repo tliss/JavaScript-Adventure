@@ -4,6 +4,7 @@ var HP = 10;
 var Fight = 10;
 var Mining = 10;
 var Craft = 10;
+var barWidth = 1;
 
 function start() {
     'use strict';
@@ -38,6 +39,9 @@ function mine() {
         option = document.createElement("option");
     option.text = "ore";
     x.add(option);
+    
+    //Why isn't this working?
+    move();
 }
 
 function rest() {
@@ -58,4 +62,19 @@ function select(value) {
     } else {
         objContent.innerHTML = "I dunno.";
     }
+}
+
+function move() {
+    'use strict';
+    var elem = document.getElementById("myBar");
+    
+    function frame() {
+        if (barWidth >= 100) {
+            clearInterval(id);
+        } else {
+            barWidth = barWidth + 1;
+            elem.style.barWidth = barWidth + '%';
+        }
+    }
+    frame();
 }
