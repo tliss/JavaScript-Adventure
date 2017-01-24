@@ -14,13 +14,19 @@
         
         <div id="name" class="hidden">
             <p>Greetings adventurer!</p>
-            <p>Please enter your name: <input type="text" name="name" size="30" maxlength="100"></p>
+            <p>Please enter your name:<p>
+            <input id="nameBox" type="text" name="name" size="30" maxlength="100">
             <button onClick="loadStart()" id="loadStart">Continue</button><br><br>
         </div>
         
         <div id="initialSetup" class="hidden">
         
             <div id="mainWindow">
+                
+                <div id="adventurersNameWrapper">
+                    <b id="adventurersName"></b>
+                </div>
+                
                 
                 <div id="inventoryWrapper">
                     

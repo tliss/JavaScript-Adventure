@@ -8,8 +8,11 @@ function start() {
 
 function loadStart() {
     'use strict';
+    var name = document.getElementById("nameBox").value,
+        adventurersName = document.getElementById('adventurersName');
     document.getElementById("name").style.display = "none";
     document.getElementById("initialSetup").style.display = "block";
+    adventurersName.innerHTML = name;
 }
 
 function mine() {
