@@ -1,0 +1,67 @@
+div.hidden
+{
+    display: none;
+}
+
+#name
+{
+    text-align:center;
+    border: 1px solid black;
+}
+
+div.center 
+{
+    text-align: center;
+}
+
+#inventory
+{
+    height: 300px; 
+    width: 150px;
+    border: 1px solid black;
+}
+
+p
+{
+    margin: 5px;
+}
+
+#mainWindow
+{
+    border: 1px solid blue;
+    width: auto;
+    padding: 5px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#inventoryWrapper
+{
+    float:left;
+}
+
+#actionWrapper
+{
+    margin-left: 5px;
+    float: left;
+}
+
+#logWindow
+{
+    height: 120px;
+    width: 150px;
+    border: 1px solid black;
+}
+
+#detailsWindow
+{
+    height: 120px;
+    width: 150px;
+    border: 1px solid black;
+}
+
+#actionBtnWrapper
+{
+    margin-top: 5px;
+    text-align: center;
+}

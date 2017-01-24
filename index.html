@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>title</title>
+        <link rel="stylesheet" href="stylesheet.css" type="text/css">
+		<script src="script.js"></script>
+    </head>
+    <body>
+        
+        <div class="center">
+            <button id="startBtn" onclick="start()">Start</button>
+        </div>
+        
+        <div id="name" class="hidden">
+            <p>Greetings adventurer!</p>
+            <p>Please enter your name: <input type="text" name="name" size="30" maxlength="100"></p>
+            <button onClick="loadStart()" id="loadStart">Continue</button><br><br>
+        </div>
+        
+        <div id="initialSetup" class="hidden">
+        
+            <div id="mainWindow">
+                
+                <div id="inventoryWrapper">
+                    
+                    <p>Inventory</p>
+                    <select id="inventory" name="inventory" size="4" multiple onchange="select(this.value)"></select>
+                    
+                </div>
+                
+                <div id="actionWrapper">
+                    
+                    <p>Log</p>
+                    <div id="logWindow"></div>
+                    
+                    <p>Details</p>
+                    <div id="detailsWindow"></div>
+                    
+                    <div id="actionBtnWrapper">
+                        <button id="mine" onclick="mine()">Mine</button>
+                        <button id="mine" onclick="farm()">Farm</button>
+                        <button id="rest" onclick="rest()">Rest</button>
+                    </div>
+                </div>
+                
+            </div>
+
+            
+        </div>
+        
+    </body>
+</html>
