@@ -58,7 +58,7 @@ function gainXP(xp) {
     currentXP += xp;
     
     var elem = document.getElementById("myBar"),
-        xpToLvlUp = 100 * (currentLevel / 2),
+        xpToLvlUp = 100 * (level / 2),
         percentage = (currentXP / xpToLvlUp) * 100,
         playersLevel = document.getElementById("level");
 
@@ -67,9 +67,9 @@ function gainXP(xp) {
     if (percentage >= 100) {
         percentage -= 100;
         elem.style.width = percentage + '%';
-        currentLevel += 1;
+        level += 1;
         currentXP = 0;
-        playersLevel.innerHTML = currentLevel;
+        playersLevel.innerHTML = level;
     }
 }
 
@@ -78,17 +78,17 @@ function mine() {
 
     switch (randNum) {
         case 1:
-            document.getElementById("logWindow").innerHTML = "You mined some copper";
+            document.getElementById("logWindow").innerHTML = "You mined some copper and gained 10 XP";
             getItem("copper")
             gainXP(10);
             break;
         case 2:
-            document.getElementById("logWindow").innerHTML = "You mined some silver";
+            document.getElementById("logWindow").innerHTML = "You mined some silver and gained 20 XP";
             getItem("silver")
             gainXP(20);
             break;
         case 3:
-            document.getElementById("logWindow").innerHTML = "You mined some rock";
+            document.getElementById("logWindow").innerHTML = "You mined some rock and gained 5 XP";
             getItem("stone")
             gainXP(5);
             break;
@@ -100,17 +100,17 @@ function hunt() {
 	
 	switch (randNum) {
 		case 1:
-			document.getElementById("logWindow").innerHTML = "You caught a fish";
+			document.getElementById("logWindow").innerHTML = "You caught a fish and gained 10 XP";
 			getItem("fish")
 			gainXP(10);
 			break;
 		case 2:
-			document.getElementById("logWindow").innerHTML = "You caught a deer";
+			document.getElementById("logWindow").innerHTML = "You caught a deer and gained 20 XP";
 			getItem("deer")
 			gainXP(20);
 			break;
 		case 3:
-			document.getElementById("logWindow").innerHTML = "You caught a rabbit";
+			document.getElementById("logWindow").innerHTML = "You caught a rabbit and gained 5 XP";
 			getItem("rabbit")
 			gainXP(5);
 			break;
