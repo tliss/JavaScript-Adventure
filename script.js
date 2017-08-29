@@ -1,21 +1,16 @@
-/*jslint devel: true */
-
 var HP = 10;
 var Fight = 10;
 var Mining = 10;
 var Craft = 10;
-var barWidth = 1;
-var currentLevel = 1;
+var level = 1;
 var currentXP = 0;
 
 function start() {
-    'use strict';
     document.getElementById("startBtn").style.display = "none";
 	document.getElementById("name").style.display = "block";
 }
 
 function loadStart() {
-    'use strict';
     var name = document.getElementById("nameBox").value,
         adventurersName = document.getElementById("adventurersName"),
         currentLevel = document.getElementById("level"),
@@ -25,7 +20,7 @@ function loadStart() {
         craftStat = document.getElementById("craftStat");
     
     adventurersName.innerHTML = name;
-    currentLevel.innerHTML = currentLevel;
+    currentLevel.innerHTML = level;
     hpStat.innerHTML = HP;
     fightStat.innerHTML = Fight;
     miningStat.innerHTML = Mining;
@@ -36,27 +31,30 @@ function loadStart() {
 }
 
 function rest() {
-    'use strict';
     document.getElementById("logWindow").innerHTML = "You got some rest.";
-    
-    var x = document.getElementById("inventory"),
-        option = document.createElement("option");
-    option.text = "rest";
-    x.add(option);
+	getItem("rest");
 }
 
 function select(value) {
-    'use strict';
     var objContent = document.getElementById('detailsWindow');
-	if (value === "ore") {
-        objContent.innerHTML = "It's ore!";
+	if (value === "copper") {
+        objContent.innerHTML = "It's some copper ore!";
+    } else if (value === "silver") {
+        objContent.innerHTML = "It's some silver ore!";
+    } else if (value === "stone") {
+        objContent.innerHTML = "It's some stone!";
+    } else if (value === "fish") {
+        objContent.innerHTML = "It's a wiggly fish!";
+    } else if (value === "rabbit") {
+        objContent.innerHTML = "It's a hoppy rabbit!";
+	} else if (value === "deer") {
+        objContent.innerHTML = "It's a noble deer!";
     } else {
-        objContent.innerHTML = "I dunno.";
+	    objContent.innerHTML = "I dunno.";
     }
 }
 
 function gainXP(xp) {
-    'use strict';
     currentXP += xp;
     
     var elem = document.getElementById("myBar"),
@@ -75,15 +73,53 @@ function gainXP(xp) {
     }
 }
 
-
 function mine() {
-    'use strict';
-    document.getElementById("logWindow").innerHTML = "You mine some ore.";
-    
-    var x = document.getElementById("inventory"),
-        option = document.createElement("option");
-    option.text = "ore";
-    x.add(option);
-    
-    gainXP(10);
+    var randNum = Math.floor((Math.random() * 3) + 1); //return number from 1 to 3
+
+    switch (randNum) {
+        case 1:
+            document.getElementById("logWindow").innerHTML = "You mined some copper";
+            getItem("copper")
+            gainXP(10);
+            break;
+        case 2:
+            document.getElementById("logWindow").innerHTML = "You mined some silver";
+            getItem("silver")
+            gainXP(20);
+            break;
+        case 3:
+            document.getElementById("logWindow").innerHTML = "You mined some rock";
+            getItem("stone")
+            gainXP(5);
+            break;
+    }
+}
+
+function hunt() {
+	var randNum = Math.floor((Math.random() * 3) + 1); //return number from 1 to 3
+	
+	switch (randNum) {
+		case 1:
+			document.getElementById("logWindow").innerHTML = "You caught a fish";
+			getItem("fish")
+			gainXP(10);
+			break;
+		case 2:
+			document.getElementById("logWindow").innerHTML = "You caught a deer";
+			getItem("deer")
+			gainXP(20);
+			break;
+		case 3:
+			document.getElementById("logWindow").innerHTML = "You caught a rabbit";
+			getItem("rabbit")
+			gainXP(5);
+			break;
+	}
+}
+
+function getItem(itemName) {
+	var inventory = document.getElementById("inventory");
+	var item = document.createElement("OPTION");
+	item.text = itemName;
+	inventory.add(item);
 }
